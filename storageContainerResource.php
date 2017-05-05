@@ -17,7 +17,8 @@ class StorageContainerResource extends Resource {
  }
 
  public function get($conn, $data) {
-    return parent::get($conn, $this->RESOURCE_SC, $data);
+    $result = parent::get($conn, $this->RESOURCE_SC, $data);
+    return new StorageContainer(json_decode($result));
  }
 
  public function create($conn, $data) {

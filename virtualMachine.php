@@ -3,6 +3,7 @@
 class VM {
 
    private $instance = null;
+   private $inst_type = "vm";
 
    function __construct($entity) {
        $this->instance = $entity; 
@@ -34,6 +35,17 @@ class VM {
 
    public function getUUID() {
        return $this->instance->uuid;
+   }
+
+   public function _print() {
+        echo  "object         => ". $this->inst_type."\n". 
+              "name           => ". $this->getName()."\n".
+              "uuid           => ". $this->getUUID()."\n".
+              "description    => ". $this->getDescription()."\n".
+              "memory         => ". $this->getMemory()."\n".
+              "vcpu cores     => ". $this->getVCPUCores()."\n".
+              "vcpu           => ". $this->getVCPUs()."\n".
+              "power state    => ". $this->getPowerState()."\n\n";
    }
 
 }

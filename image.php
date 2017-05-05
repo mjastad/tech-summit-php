@@ -3,6 +3,7 @@
 class Image {
 
    private $instance = null;
+   private $inst_type ="image";
 
    function __construct($entity) {
        $this->instance = $entity;
@@ -30,6 +31,16 @@ class Image {
 
    public function getVMDiskId() {
        return $this->instance->vm_disk_id;
+   }
+
+   public function _print() {
+        echo  "object         => ". $this->inst_type."\n".
+              "name           => ". $this->getName()."\n".
+              "uuid           => ". $this->getUUID()."\n".
+              "container uuid => ". $this->getStorageContainerUUID()."\n".
+              "contianer id   => ". $this->getStorageContainerID()."\n".
+              "type           => ". $this->getType()."\n".
+              "vm disk uuid   => ". $this->getVMDiskID()."\n\n";
    }
 
 }

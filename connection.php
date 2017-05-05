@@ -33,7 +33,7 @@ class Connection {
             break;
         case "DELETE":
             curl_setopt($this->curl, CURLOPT_CUSTOMREQUEST, "DELETE");
-            curl_setopt($this->curl, CURLOPT_POSTFIELDS, $json);
+            //curl_setopt($this->curl, CURLOPT_POSTFIELDS, $json);
             break;
         default:
             if ($data)

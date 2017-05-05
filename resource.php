@@ -13,7 +13,11 @@ class Resource {
    }
 
    public function create($conn, $res, $data) {
-	return "parent::create(conn,res,data)";
+        $conn->open();
+        $RESULT = $conn->run($this->POST,$res,$data);
+        $conn->close();
+
+        return $RESULT;
    }
 
    public function getAll($conn, $res) {
@@ -25,11 +29,27 @@ class Resource {
    }
 
    public function get($conn, $res, $inst) {
-	return "parent::get(conn,res,inst)";
+        $conn->open();
+        $RESULT = $conn->run($this->GET,$res.$inst,inst);
+        $conn->close();
+
+        return $RESULT;
    }
 
    public function delete($conn, $res, $inst) {
-        return "parent::delete(conn,res,inst)";
+        $conn->open();
+        $RESULT = $conn->run($this->DELETE,$res.$inst,inst);
+        $conn->close();
+
+        return $RESULT;
+   }
+
+   public function search($source, $cmp) {
+   	foreach ($source as $res){
+   	    if($res->getName() == $cmp) {
+       		return $res->getUUID();
+            }
+        }
    }
 }
 

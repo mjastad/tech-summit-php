@@ -17,7 +17,8 @@ class ImageResource extends Resource {
  }
 
  public function get($conn, $data) {
-    return parent::get($conn, $this->RESOURCE_IM, $data);
+    $result = parent::get($conn, $this->RESOURCE_IM, $data);
+    return new Image(json_decode($result));
  }
 
  public function create($conn, $data) {
@@ -30,6 +31,14 @@ class ImageResource extends Resource {
 
  public function showAll($conn){
      var_dump(json_decode(parent::getAll($conn, $this->RESOURCE_IM)));
+ }
+
+ public function search($source, $cmp) {
+     foreach ($source as $res){
+       if($res->getName() == $cmp) {
+           return $res->getVMDiskID();
+       }
+     }
  }
 
  private function parseJson($json) {

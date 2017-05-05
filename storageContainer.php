@@ -3,6 +3,7 @@
 class StorageContainer {
  
    private $instance = null;
+   private $inst_type = "storage-container";
 
    function __construct($entity) {
        $this->instance = $entity;
@@ -32,6 +33,15 @@ class StorageContainer {
        return $this->instance->replication_factor;
    }
 
+   public function _print() {
+	echo  "object         => ". $this->inst_type."\n".
+              "name           => ". $this->getName()."\n".
+              "uuid           => ". $this->getUUID()."\n".
+              "id             => ". $this->getID()."\n".
+              "cluster uuid   => ". $this->getClusterUUID()."\n".
+              "max capacity   => ". $this->getMaxCapacity()."\n".
+              "r-factor       => ". $this->getReplicationFactor()."\n\n";
+   }
 }
 
 ?>

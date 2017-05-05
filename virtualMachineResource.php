@@ -18,7 +18,8 @@ class VirtualMachineResource extends Resource {
  }
 
  public function get($conn, $data) {
-    return parent::get($conn, $this->RESOURCE_VM, $data);
+    $result = parent::get($conn, $this->RESOURCE_VM, $data);
+    return new VM(json_decode($result));
  }
 
  public function create($conn, $data) {
