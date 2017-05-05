@@ -2,6 +2,7 @@
 
 require 'resource.php';
 require_once('virtualMachine.php');
+require_once('powerVM.php');
 
 class VirtualMachineResource extends Resource {
 
@@ -31,11 +32,13 @@ class VirtualMachineResource extends Resource {
  }
 
  public function powerOn($conn, $data) {
-    return parent::create($conn, $this->RESOURCE_VM, $data);
+    $vmPwr = new VMPower("ON",$data); 
+    return parent::create($conn, $this->RESOURCE_VM.$data.$this->RESOURCE_VM_PWR_STATE, json_encode($vmPwr->get()));
  }
 
  public function powerOff($conn, $data) {
-    return parent::create($conn, $this->RESOURCE_VM, $data);
+    $vmPwr = new VMPower("OFF",$data);
+    return parent::create($conn, $this->RESOURCE_VM.$data.$this->RESOURCE_VM_PWR_STATE, json_encode($vmPwr->get()));
  }
 
  public function showAll($conn){

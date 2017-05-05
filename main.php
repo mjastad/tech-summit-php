@@ -39,11 +39,14 @@ $ir = new ImageResource();
 $response = $ir->getAll($connection);
 $osimgid = $ir->search($response,$OS_IMAGE);
 $ngtimgid = $ir->search($response,$NGT_IMAGE);
+print "search: {osimage_uuid: ".$osimgid."}\n";
+print "search: {ngtimage_uuid: ".$ngtimgid."}\n";
 
 //instantiate storage-container resource 
 $scr = new StorageContainerResource();
 $response = $scr->getAll($connection);
 $defscid = $scr->search($response,$DEF_CONTAINER);
+print "search: {storage-container_uuid: ".$defscid."}\n";
 
 //initialize vm-json
 $vmJson = new VMJson();
@@ -57,13 +60,29 @@ $vmJson->ref($osimgid,$defscid,$VDISK_CAPACITY,$ngtimgid);
 
 //create vm
 $response = $vmr->create($connection, json_encode($vmJson->get()));
-print $response."\n";
+print "create(vm): ".$response."\n";
 
 sleep(5);
 
-//search vm for uuid
+//search for vm uuid
 $response = $vmr->getAll($connection);
 $vm_uuid = $vmr->search($response,"W2K12R2");
+
+//power vm on
+$response = $vmr->powerOn($connection, $vm_uuid);
+print "power-on(vm): ".$response."\n";
+
+sleep(5);
+
+//power vm off
+$response = $vmr->powerOff($connection, $vm_uuid);
+print "power-off(vm): ".$response."\n";
+
+sleep(5);
+
+//delete vm
+$response = $vmr->delete($connection, $vm_uuid);
+print "delete(vm): ".$response."\n";
 
 ?>
 
