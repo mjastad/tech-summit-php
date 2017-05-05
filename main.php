@@ -68,15 +68,15 @@ sleep(5);
 $response = $vmr->getAll($connection);
 $vm_uuid = $vmr->search($response,"W2K12R2");
 
-//power vm on
+//powerOn vm 
 $response = $vmr->powerOn($connection, $vm_uuid);
-print "power-on(vm): ".$response."\n";
+print "powerOn(vm): ".$response."\n";
 
 sleep(5);
 
-//power vm off
+//powerOff vm 
 $response = $vmr->powerOff($connection, $vm_uuid);
-print "power-off(vm): ".$response."\n";
+print "powerOff(vm): ".$response."\n";
 
 sleep(5);
 
