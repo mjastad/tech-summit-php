@@ -4,6 +4,7 @@
 require_once('virtualMachineResource.php');
 require_once('storageContainerResource.php');
 require_once('imageResource.php');
+require_once('taskResource.php');
 require_once('host.php');
 require_once('user.php');
 require_once('connection.php');
@@ -36,14 +37,23 @@ $vmr = new VirtualMachineResource();
 
 //instantiate image resource
 $ir = new ImageResource();
+
+//instantiate storage-container resource
+$scr = new StorageContainerResource();
+
+//instantiate task resource
+$tr = new TaskResource();
+
+//search + display os-image resource
 $response = $ir->getAll($connection);
 $osimgid = $ir->search($response,$OS_IMAGE);
-$ngtimgid = $ir->search($response,$NGT_IMAGE);
 print "search: {osimage_uuid: ".$osimgid."}\n";
+
+//search + display ngt-image resource
+$ngtimgid = $ir->search($response,$NGT_IMAGE);
 print "search: {ngtimage_uuid: ".$ngtimgid."}\n";
 
-//instantiate storage-container resource 
-$scr = new StorageContainerResource();
+//search + display container resource
 $response = $scr->getAll($connection);
 $defscid = $scr->search($response,$DEF_CONTAINER);
 print "search: {storage-container_uuid: ".$defscid."}\n";
@@ -60,9 +70,11 @@ $vmJson->ref($osimgid,$defscid,$VDISK_CAPACITY,$ngtimgid);
 
 //create vm
 $response = $vmr->create($connection, json_encode($vmJson->get()));
-print "create(vm): ".$response."\n";
 
-sleep(5);
+//check create-vm task
+$task = $tr->get($connection,json_decode($response)->task_uuid);
+$task = $tr->status($connection,$response,$task,"Running");
+print "create(vm): ".$task->status()."\n";
 
 //search for vm uuid
 $response = $vmr->getAll($connection);
@@ -70,19 +82,27 @@ $vm_uuid = $vmr->search($response,"W2K12R2");
 
 //powerOn vm 
 $response = $vmr->powerOn($connection, $vm_uuid);
-print "powerOn(vm): ".$response."\n";
 
-sleep(5);
+//check powerOn task
+$task = $tr->get($connection,json_decode($response)->task_uuid);
+$task = $tr->status($connection,$response,$task,"Running");
+print "powerOn(vm): ".$task->status()."\n";
 
 //powerOff vm 
 $response = $vmr->powerOff($connection, $vm_uuid);
-print "powerOff(vm): ".$response."\n";
 
-sleep(5);
+//check powerOff task
+$task = $tr->get($connection,json_decode($response)->task_uuid);
+$task = $tr->status($connection,$response,$task,"Running");
+print "powerOff(vm): ".$task->status()."\n";
 
 //delete vm
 $response = $vmr->delete($connection, $vm_uuid);
-print "delete(vm): ".$response."\n";
+
+//check delete task
+$task = $tr->get($connection,json_decode($response)->task_uuid);
+$task = $tr->status($connection,$response,$task,"Running");
+print "delete(vm): ".$task->status()."\n";
 
 ?>
 
