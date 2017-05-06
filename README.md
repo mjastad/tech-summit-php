@@ -1,4 +1,4 @@
-# tech-summit-php
+# tech-summit (php solution)
 %% readme.txt
 %% ntnx php-scripts(version 1.0.1 0505.01)
 
