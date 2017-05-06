@@ -2,7 +2,7 @@
 %% readme.txt
 %% ntnx php-scripts(version 1.0.1 0505.01)
 
-Name:-         NTNX PHP REST Object Tool-Kit (NTNX- PRESTO) (PHP v5.x, OSX 10.12.4)
+Name:-         NTNX PHP REST Object Oriented Tool-Kit (NTNX- PRESTO) (PHP v5.x, OSX 10.12.4)
 Authors:-      M. Jastad (michael.jastad@nutanix.com) 
         
 Date:-         May 05, 2017
