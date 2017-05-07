@@ -30,7 +30,7 @@ class Resource {
 
    public function get($conn, $res, $inst) {
         $conn->open();
-        $RESULT = $conn->run($this->GET,$res.$inst,inst);
+        $RESULT = $conn->run($this->GET,$res.$inst,null);
         $conn->close();
 
         return $RESULT;
@@ -38,7 +38,7 @@ class Resource {
 
    public function delete($conn, $res, $inst) {
         $conn->open();
-        $RESULT = $conn->run($this->DELETE,$res.$inst,inst);
+        $RESULT = $conn->run($this->DELETE,$res.$inst,null);
         $conn->close();
 
         return $RESULT;
