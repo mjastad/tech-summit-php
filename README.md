@@ -40,7 +40,7 @@ Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies
 -----------------------
 The following files are included in the PRESTO v1 Project.
  
-- README                                % this file
+- README                                 -- this file
 - connection.php                        % manages the http connection
 - host.php                              % target host object
 - image.php                             % image instance object
@@ -62,7 +62,7 @@ The following files are included in the PRESTO v1 Project.
 (6) INSTALLATION (Linux, Mac)
 --------------------------------
 - file: ts-presto.osx-10.12.4.tar 
-- “file” is shell extracted using tar utility. No checks for dependencies during install.
+- file: shell extracted using tar utility. No checks for dependencies during install.
 
 Install steps:
 1. Copy file to filesystem folder.
