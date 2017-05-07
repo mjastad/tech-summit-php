@@ -17,10 +17,10 @@ $PASSWD = "passw0rd";
 $IPADDR = "10.68.69.102";
 $PORT   = "9440";
 
-$DEF_CONTAINER = "default-container-51367838548457";
-$ISO_CONTAINER = "ISOs";
-$OS_IMAGE = "Windows Server 2012 R2";
-$NGT_IMAGE = "Nutanix Virt-IO";
+$DEF_CONTAINER  = "default-container-51367838548457";
+$ISO_CONTAINER  = "ISOs";
+$OS_IMAGE       = "Windows Server 2012 R2";
+$NGT_IMAGE      = "Nutanix Virt-IO";
 $VDISK_CAPACITY = 10737418240; 
 
 //instantiate user
