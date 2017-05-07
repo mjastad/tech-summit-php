@@ -41,23 +41,23 @@ Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies
 The following files are included in the PRESTO v1 Project.
  
 - README                                 -- this file
-- connection.php                        % manages the http connection
-- host.php                              % target host object
-- image.php                             % image instance object
-- imageResource.php                     % image RESTful service
-- instance.php                          % --
-- jsonVM.php                            % JSON object for VM creation
-- main.php                              % driver bootstrap
-- powerVM.php                           % JSON object for VM power-state control
-- resource.php                          % base class for VM, StorageContainer, Image services
-- service.php                           % service object
-- storageContainer.php                  % storage-container instance object
-- storageContainerResource.php          % storage-continer RESTful service
-- task.php                              % task instance object
-- taskResource.php                      % task RESTful service
-- user.php                              % user object
-- virtualMachine.php                    % virtual-machine instance object
-- virtualMachineResource.php            % virtual-machine RESTful service
+- connection.php                         -- manages the http connection
+- host.php                               -- target host object
+- image.php                              -- image instance object
+- imageResource.php                      -- image RESTful service
+- instance.php                           -- N/A
+- jsonVM.php                             -- JSON object for VM creation
+- main.php                               -- driver bootstrap
+- powerVM.php                            -- JSON object for VM power-state control
+- resource.php                           -- base class for VM, StorageContainer, Image services
+- service.php                            -- service object
+- storageContainer.php                   -- storage-container instance object
+- storageContainerResource.php           -- storage-continer RESTful service
+- task.php                               -- task instance object
+- taskResource.php                       -- task RESTful service
+- user.php                               -- user object
+- virtualMachine.php                     -- virtual-machine instance object
+- virtualMachineResource.php             -- virtual-machine RESTful service
 
 (6) INSTALLATION (Linux, Mac)
 --------------------------------
