@@ -2,10 +2,10 @@
 %% readme.txt
 %% ntnx php-scripts(version 1.0.1 0505.01)
 
-Name:-         NTNX PHP REST Object Oriented Tool-Kit (NTNX- PRESTO) (PHP v5.x, OSX 10.12.4)
-Authors:-      M. Jastad (michael.jastad@nutanix.com) 
+- Name:         NTNX PHP REST Object Oriented Tool-Kit (NTNX- PRESTO) (PHP v5.x, OSX 10.12.4)
+- Authors:      M. Jastad (michael.jastad@nutanix.com) 
         
-Date:-         May 05, 2017
+- Date:         May 05, 2017
 
 (1) DEFECTS/FEATURES 
 --------------------------  
@@ -40,22 +40,37 @@ Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies
 -----------------------
 The following files are included in the PRESTO v1 Project.
  
-README                % this file
-
+- README                                % this file
+- connection.php                        % manages the http connection
+- host.php                              % target host object
+- image.php                             % image instance object
+- imageResource.php                     % image RESTful service
+- instance.php                          % --
+- jsonVM.php                            % JSON object for VM creation
+- main.php                              % driver bootstrap
+- powerVM.php                           % JSON object for VM power-state control
+- resource.php                          % base class for VM, StorageContainer, Image services
+- service.php                           % service object
+- storageContainer.php                  % storage-container instance object
+- storageContainerResource.php          % storage-continer RESTful service
+- task.php                              % task instance object
+- taskResource.php                      % task RESTful service
+- user.php                              % user object
+- virtualMachine.php                    % virtual-machine instance object
+- virtualMachineResource.php            % virtual-machine RESTful service
 
 (6) INSTALLATION (Linux, Mac)
 --------------------------------
-file: ts-bash.osx-10.12.4.tar 
-
-“file” is shell extracted using tar or RAR utilities. No checks for dependencies during install (extraction).
+- file: ts-presto.osx-10.12.4.tar 
+- “file” is shell extracted using tar utility. No checks for dependencies during install.
 
 Install steps:
 1. Copy file to filesystem folder.
 2. Extraction will place files in "php-scripts" folder.
 3. Run/Execute the scripts from the command-line or browser
 
-Command-Line:
-%% php main/php
+Commandline execution:
+1. %> php main/php
  
 (7) USAGE/CONFIGURATION 
 -----------------------------
@@ -72,7 +87,8 @@ Configure (main.php):
 --------------------------
 The following describes the directory structure for installation.
 
-/php-scripts	        % Executables and configuration files used to control execution.
+- /presto	                % Executables and configuration files used to control execution.
+- /docs                         % README
 
 (9) LICENSE (LPPL):
 -----------------------
