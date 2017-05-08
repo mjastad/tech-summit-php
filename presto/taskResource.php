@@ -16,7 +16,9 @@ class TaskResource extends Resource{
     return new Task(json_decode($result));
  }
 
- public function status($conn, $resp, $task, $stat) {
+ public function status($conn, $resp, $stat) {
+    $task = $this->get($conn,json_decode($resp)->task_uuid);
+
     while(trim($task->status()) == trim($stat)){
          $task = $this->get($conn,json_decode($resp)->task_uuid);
          sleep(1);

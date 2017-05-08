@@ -45,6 +45,15 @@ class VirtualMachineResource extends Resource {
      var_dump(json_decode(parent::getAll($conn, $this->RESOURCE_VM)));
  }
 
+ public function search($conn, $target) {
+     $instances = $this->getAll($conn);
+     foreach ($instances as $instance){
+        if($instance->getName() == $target) {
+             return $instance;
+        }
+     }
+ }
+
  private function parseJson($json) {
     $instances = array();
     $data = json_decode($json);
