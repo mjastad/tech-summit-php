@@ -22,6 +22,7 @@ $ISO_CONTAINER  = "ISOs";
 $OS_IMAGE       = "Windows Server 2012 R2";
 $NGT_IMAGE      = "Nutanix Virt-IO";
 $VDISK_CAPACITY = 10737418240; 
+$VM_NAME        = "W2K12R2"; 
 
 //instantiate user
 $user = new User($USER, $PASSWD);
@@ -61,7 +62,7 @@ print "search: {storage-container_uuid: ".$defscid."}\n";
 //initialize vm-json
 $vmJson = new VMJson();
 $vmJson->description("Tech Summit");
-$vmJson->name("W2K12R2");
+$vmJson->name($VM_NAME);
 $vmJson->guest_os("Windows Server 2012");
 $vmJson->memory_mb(2000);
 $vmJson->cores_vcpu(1);
@@ -72,36 +73,31 @@ $vmJson->ref($osimgid,$defscid,$VDISK_CAPACITY,$ngtimgid);
 $response = $vmr->create($connection, json_encode($vmJson->get()));
 
 //check create-vm task
-$task = $tr->get($connection,json_decode($response)->task_uuid);
-$task = $tr->status($connection,$response,$task,"Running");
+$task = $tr->status($connection,$response,task::RUNNING);
 print "create(vm): ".$task->status()."\n";
 
 //search for vm uuid
-$response = $vmr->getAll($connection);
-$vm_uuid = $vmr->search($response,"W2K12R2");
+$vm = $vmr->search($connection,$VM_NAME);
 
 //powerOn vm 
-$response = $vmr->powerOn($connection, $vm_uuid);
+$response = $vmr->powerOn($connection, $vm->getUUID());
 
 //check powerOn task
-$task = $tr->get($connection,json_decode($response)->task_uuid);
-$task = $tr->status($connection,$response,$task,"Running");
+$task = $tr->status($connection,$response,task::RUNNING);
 print "powerOn(vm): ".$task->status()."\n";
 
 //powerOff vm 
-$response = $vmr->powerOff($connection, $vm_uuid);
+$response = $vmr->powerOff($connection, $vm->getUUID());
 
 //check powerOff task
-$task = $tr->get($connection,json_decode($response)->task_uuid);
-$task = $tr->status($connection,$response,$task,"Running");
+$task = $tr->status($connection,$response,task::RUNNING);
 print "powerOff(vm): ".$task->status()."\n";
 
 //delete vm
-$response = $vmr->delete($connection, $vm_uuid);
+$response = $vmr->delete($connection, $vm->getUUID());
 
 //check delete task
-$task = $tr->get($connection,json_decode($response)->task_uuid);
-$task = $tr->status($connection,$response,$task,"Running");
+$task = $tr->status($connection,$response,task::RUNNING);
 print "delete(vm): ".$task->status()."\n";
 
 ?>

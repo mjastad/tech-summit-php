@@ -2,6 +2,11 @@
 
 class Task {
 
+   const RUNNING = "Running";
+   const FAILED  = "Failed";
+   const QUEUED  = "Queued";
+   const SUCCESS = "Succeeded";
+
    private $instance = null;
    private $inst_type ="task";
 
