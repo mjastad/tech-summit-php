@@ -87,7 +87,7 @@ Configure (main.php):
 --------------------------
 The following describes the directory structure for installation.
 
-- /presto	                % Executables and configuration files used to control execution.
+- /presto	                % Main and Core files used to control execution.
 - /docs                         % README
 
 (9) LICENSE (LPPL):
