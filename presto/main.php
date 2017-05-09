@@ -70,7 +70,7 @@ $vmJson->vcpu(1);
 $vmJson->ref($osimgid,$defscid,$VDISK_CAPACITY,$ngtimgid);
 
 //create vm
-$response = $vmr->create($connection, json_encode($vmJson->get()));
+$response = $vmr->create($connection, $vmJson);
 
 //check create-vm task
 $task = $tr->status($connection,$response,task::RUNNING);
