@@ -11,18 +11,26 @@ require_once('connection.php');
 require_once('utilities.php');
 require_once('jsonVM.php');
 
-//variables
+//host && user variables
 $USER   = "admin";
 $PASSWD = "passw0rd";
 $IPADDR = "10.68.69.102";
 $PORT   = "9440";
 
+//resource variables
 $DEF_CONTAINER  = "default-container-51367838548457";
 $ISO_CONTAINER  = "ISOs";
 $OS_IMAGE       = "Windows Server 2012 R2";
 $NGT_IMAGE      = "Nutanix Virt-IO";
-$VDISK_CAPACITY = 10737418240; 
+
+//vm settings
+$VM_DESC	= "Tech Summit 2017";
 $VM_NAME        = "W2K12R2"; 
+$VM_GUEST_OS    = "Windows Server 2012 R2"; 
+$VM_MEMORY      = 2000; 
+$VM_VCPU_CORE   = 1; 
+$VM_VCPU        = 1; 
+$VDISK_CAPACITY = 10737418240; 
 
 //instantiate user
 $user = new User($USER, $PASSWD);
@@ -53,18 +61,18 @@ print "search: {osimage_uuid: ".$osimage->getVMDiskId()."}\n";
 $ngtimage = $ir->find($connection,$NGT_IMAGE);
 print "search: {ngtimage_uuid: ".$ngtimage->getVMDiskId()."}\n";
 
-//search + display container resource
+//search + display storage-container resource
 $defsc = $scr->find($connection,$DEF_CONTAINER);
 print "search: {storage-container_uuid: ".$defsc->getUUID()."}\n";
 
 //initialize vm-json
 $vmJson = new VMJson();
-$vmJson->description("Tech Summit");
+$vmJson->description($VM_DESC);
 $vmJson->name($VM_NAME);
-$vmJson->guest_os("Windows Server 2012");
-$vmJson->memory_mb(2000);
-$vmJson->cores_vcpu(1);
-$vmJson->vcpu(1);
+$vmJson->guest_os($VM_GUEST_OS);
+$vmJson->memory_mb($VM_MEMORY);
+$vmJson->cores_vcpu($VM_VCPU_CORE);
+$vmJson->vcpu($VM_VCPU);
 $vmJson->ref($osimage->getVMDiskId(),$defsc->getUUID(),$VDISK_CAPACITY,$ngtimage->getVMDiskId());
 
 //create vm
