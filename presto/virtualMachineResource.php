@@ -28,30 +28,25 @@ class VirtualMachineResource extends Resource {
  }
 
  public function delete($conn, $data) {
-    return parent::delete($conn, $this->RESOURCE_VM, $data);
+    return parent::delete($conn, $this->RESOURCE_VM, $data->getUUID());
  }
 
  public function powerOn($conn, $data) {
-    $vmPwr = new VMPower("ON",$data); 
-    return parent::create($conn, $this->RESOURCE_VM.$data.$this->RESOURCE_VM_PWR_STATE, json_encode($vmPwr->get()));
+    $vmPwr = new VMPower("ON",$data->getUUID()); 
+    return parent::create($conn, $this->RESOURCE_VM.$data->getUUID().$this->RESOURCE_VM_PWR_STATE, json_encode($vmPwr->get()));
  }
 
  public function powerOff($conn, $data) {
-    $vmPwr = new VMPower("OFF",$data);
-    return parent::create($conn, $this->RESOURCE_VM.$data.$this->RESOURCE_VM_PWR_STATE, json_encode($vmPwr->get()));
+    $vmPwr = new VMPower("OFF",$data->getUUID());
+    return parent::create($conn, $this->RESOURCE_VM.$data->getUUID().$this->RESOURCE_VM_PWR_STATE, json_encode($vmPwr->get()));
  }
 
  public function showAll($conn){
      var_dump(json_decode(parent::getAll($conn, $this->RESOURCE_VM)));
  }
 
- public function search($conn, $target) {
-     $instances = $this->getAll($conn);
-     foreach ($instances as $instance){
-        if($instance->getName() == $target) {
-             return $instance;
-        }
-     }
+ public function find($conn, $target) {
+    return parent::find($conn, $target);
  }
 
  private function parseJson($json) {

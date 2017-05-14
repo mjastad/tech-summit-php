@@ -44,6 +44,16 @@ class Resource {
         return $RESULT;
    }
 
+   public function find($conn, $target) {
+     $instances = $this->getAll($conn);
+     foreach ($instances as $instance){
+        if($instance->getName() == $target) {
+             return $instance;
+        }
+     }
+   }
+
+   //depricated
    public function search($source, $cmp) {
    	foreach ($source as $res){
    	    if($res->getName() == $cmp) {

@@ -46,18 +46,16 @@ $scr = new StorageContainerResource();
 $tr = new TaskResource();
 
 //search + display os-image resource
-$response = $ir->getAll($connection);
-$osimgid = $ir->search($response,$OS_IMAGE);
-print "search: {osimage_uuid: ".$osimgid."}\n";
+$osimage = $ir->find($connection,$OS_IMAGE);
+print "search: {osimage_uuid: ".$osimage->getVMDiskId()."}\n";
 
 //search + display ngt-image resource
-$ngtimgid = $ir->search($response,$NGT_IMAGE);
-print "search: {ngtimage_uuid: ".$ngtimgid."}\n";
+$ngtimage = $ir->find($connection,$NGT_IMAGE);
+print "search: {ngtimage_uuid: ".$ngtimage->getVMDiskId()."}\n";
 
 //search + display container resource
-$response = $scr->getAll($connection);
-$defscid = $scr->search($response,$DEF_CONTAINER);
-print "search: {storage-container_uuid: ".$defscid."}\n";
+$defsc = $scr->find($connection,$DEF_CONTAINER);
+print "search: {storage-container_uuid: ".$defsc->getUUID()."}\n";
 
 //initialize vm-json
 $vmJson = new VMJson();
@@ -67,7 +65,7 @@ $vmJson->guest_os("Windows Server 2012");
 $vmJson->memory_mb(2000);
 $vmJson->cores_vcpu(1);
 $vmJson->vcpu(1);
-$vmJson->ref($osimgid,$defscid,$VDISK_CAPACITY,$ngtimgid);
+$vmJson->ref($osimage->getVMDiskId(),$defsc->getUUID(),$VDISK_CAPACITY,$ngtimage->getVMDiskId());
 
 //create vm
 $response = $vmr->create($connection, $vmJson);
@@ -76,25 +74,25 @@ $response = $vmr->create($connection, $vmJson);
 $task = $tr->status($connection,$response,task::RUNNING);
 print "create(vm): ".$task->status()."\n";
 
-//search for vm uuid
-$vm = $vmr->search($connection,$VM_NAME);
+//find created vm 
+$vm = $vmr->find($connection,$VM_NAME);
 
 //powerOn vm 
-$response = $vmr->powerOn($connection, $vm->getUUID());
+$response = $vmr->powerOn($connection, $vm);
 
 //check powerOn task
 $task = $tr->status($connection,$response,task::RUNNING);
 print "powerOn(vm): ".$task->status()."\n";
 
 //powerOff vm 
-$response = $vmr->powerOff($connection, $vm->getUUID());
+$response = $vmr->powerOff($connection, $vm);
 
 //check powerOff task
 $task = $tr->status($connection,$response,task::RUNNING);
 print "powerOff(vm): ".$task->status()."\n";
 
 //delete vm
-$response = $vmr->delete($connection, $vm->getUUID());
+$response = $vmr->delete($connection, $vm);
 
 //check delete task
 $task = $tr->status($connection,$response,task::RUNNING);

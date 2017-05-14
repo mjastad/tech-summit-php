@@ -30,7 +30,11 @@ class StorageContainerResource extends Resource {
  }
 
  public function showAll($conn){
-     var_dump(json_decode(parent::getAll($conn, $this->RESOURCE_SC)));
+    var_dump(json_decode(parent::getAll($conn, $this->RESOURCE_SC)));
+ }
+
+ public function find($conn, $target) {
+    return parent::find($conn, $target);
  }
 
  private function parseJson($json) {
