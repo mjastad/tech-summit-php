@@ -1,12 +1,9 @@
 <?php
 
 require_once('connection.php');
+require_once('op.php');
 
 class Resource {
-
-   private $GET    = "GET";
-   private $POST   = "POST";
-   private $DELETE = "DELETE";
 
    function __construct(){
 
@@ -14,7 +11,7 @@ class Resource {
 
    public function create($conn, $res, $data) {
         $conn->open();
-        $RESULT = $conn->run($this->POST,$res,$data);
+        $RESULT = $conn->run(OP::POST,$res,$data);
         $conn->close();
 
         return $RESULT;
@@ -22,7 +19,7 @@ class Resource {
 
    public function getAll($conn, $res) {
         $conn->open();
-	$RESULT = $conn->run($this->GET,$res,null);
+	$RESULT = $conn->run(OP::GET,$res,null);
         $conn->close();
        
         return $RESULT; 
@@ -30,7 +27,7 @@ class Resource {
 
    public function get($conn, $res, $inst) {
         $conn->open();
-        $RESULT = $conn->run($this->GET,$res.$inst,null);
+        $RESULT = $conn->run(OP::GET,$res.$inst,null);
         $conn->close();
 
         return $RESULT;
@@ -38,7 +35,7 @@ class Resource {
 
    public function delete($conn, $res, $inst) {
         $conn->open();
-        $RESULT = $conn->run($this->DELETE,$res.$inst,null);
+        $RESULT = $conn->run(OP::DELETE,$res.$inst,null);
         $conn->close();
 
         return $RESULT;
