@@ -84,6 +84,14 @@ class Connection {
    public function close() {
       curl_close($this->curl);
    }
+   
+   public function host() {
+      return $this->host;
+   }
+   
+   public function user() {
+      return $this->user;
+   }
 }
 
 ?>
