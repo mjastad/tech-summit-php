@@ -1,5 +1,23 @@
 <?php
 
+
+/**
+ * Class VM: Class VirtualMachineService: A service pattern object designed around NTNX VMS
+ * resource RESTful operations.
+ *
+ * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header must
+ * remain intact.
+ *
+ * @category   Core
+ * @package    presto/virtualMachineResource.php
+ * @author     M.Jastad <michael.jastad@nutanix.com>
+ * @copyright  2017 Nutanix, Inc.
+ * @license    USE-AS-IS
+ * @version    Release: @1.0.1
+ * @since      Class available since Release 1.0.0
+ * @deprecated N/A
+ */
+
 require 'resource.php';
 require_once('virtualMachine.php');
 require_once('powerVM.php');
