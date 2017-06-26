@@ -2,7 +2,7 @@
 
 /**
  * Class VM: Class VirtualMachine: A non-mutable container object designed around NTNX REST
- * endpiint VMS resource.
+ * endpoint VMS resource.
  *
  * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header must
  * remain intact.
