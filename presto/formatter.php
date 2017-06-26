@@ -10,6 +10,7 @@
  * @license    N/A
  * @version    Release: @1.0.1
  * @since      Class available since Release 1.0.0
+ * @deprecated Class deprecated in Release 1.0.1
  */
 
 
