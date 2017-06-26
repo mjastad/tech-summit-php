@@ -1,5 +1,20 @@
 <?php
 
+/**
+ * Class StorageContainer: A non-mutable container object designed around NTNX REST endpiint StorageContainer resource.
+ *
+ * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header MUST NOT be removed.
+ *
+ * @category   Core
+ * @package    presto/storageContainer.php
+ * @author     M.Jastad <michael.jastad@nutanix.com>
+ * @copyright  2017 Nutanix, Inc.
+ * @license    USE-AS-IS
+ * @version    Release: @1.0.1
+ * @since      Class available since Release 1.0.0
+ * @deprecated N/A
+ */
+
 class StorageContainer {
  
    private $instance = null;
