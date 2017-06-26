@@ -1,5 +1,18 @@
 <?php
 
+/**
+ *  body
+ *
+ * @category   Core
+ * @package    Class Host: A non-mutable object designed to represent a RESTful host endpoint.
+ * @author     M.Jastad <michael.jastad@nutanix.com>
+ * @copyright  2017 Nutanix, Inc.
+ * @license    N/A
+ * @version    Release: @1.0.1
+ * @since      Class available since Release 1.0.0
+ * @deprecated N/A
+ */
+
 require 'service.php';
 
 class Host{
