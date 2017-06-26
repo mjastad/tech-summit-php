@@ -1,7 +1,8 @@
 <?php
 
 /**
- * Class ImageService: A service pattern object designed around NTNX Image resource RESTful operations.
+ * Class ImageService: A service pattern object designed around NTNX Image resource
+ * RESTful operations.
  *
  * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header must
  * remain intact
