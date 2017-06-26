@@ -1,9 +1,11 @@
 <?php
 
 /**
- * Class StorageContainerService: A service pattern object designed around NTNX StorageContainer resource RESTful operations.
+ * Class StorageContainerService: A service pattern object designed around
+ * NTNX StorageContainer resource RESTful operations.
  *
- * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header MUST NOT be removed.
+ * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header
+ * MUST NOT be removed.
  *
  * @category   Core
  * @package    presto/storageContainerResource.php
