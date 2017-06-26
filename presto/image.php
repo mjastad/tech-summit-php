@@ -1,5 +1,19 @@
 <?php
 
+/**
+ *  body
+ *
+ * @category   Core
+ * @package    Class Image: A non-mutable container pattern object designed around NTNX REST endpiint Image resource.
+ * @author     M.Jastad <michael.jastad@nutanix.com>
+ * @copyright  2017 Nutanix, Inc.
+ * @license    N/A
+ * @version    Release: @1.0.1
+ * @since      Class available since Release 1.0.0
+ * @deprecated N/A
+ */
+
+
 class Image {
 
    private $instance = null;
