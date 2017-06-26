@@ -3,6 +3,9 @@
 /**
  * Class Connection: Establishes a RESTful connection between client and REST endpoint
  *
+ * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header must
+ * remain intact
+ *
  * @category   Core
  * @package    presto/connection.php
  * @author     M.Jastad <michael.jastad@nutanix.com>
