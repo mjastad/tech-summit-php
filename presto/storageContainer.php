@@ -1,9 +1,11 @@
 <?php
 
 /**
- * Class StorageContainer: A non-mutable container object designed around NTNX REST endpiint StorageContainer resource.
+ * Class StorageContainer: A non-mutable container object designed around NTNX REST
+ * endpoint StorageContainer resource.
  *
- * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header MUST NOT be removed.
+ * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header 
+ * MUST NOT be removed.
  *
  * @category   Core
  * @package    presto/storageContainer.php
