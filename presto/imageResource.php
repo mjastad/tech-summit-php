@@ -1,5 +1,21 @@
 <?php
 
+/**
+ * Class ImageService: A service pattern object designed around NTNX Image resource RESTful operations.
+ *
+ * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header must
+ * remain intact
+ *
+ * @category   Core
+ * @package    presto/imageResource.php
+ * @author     M.Jastad <michael.jastad@nutanix.com>
+ * @copyright  2017 Nutanix, Inc.
+ * @license    N/A
+ * @version    Release: @1.0.1
+ * @since      Class available since Release 1.0.0
+ * @deprecated N/A
+ */
+
 require_once('resource.php');
 require_once('image.php');
 
