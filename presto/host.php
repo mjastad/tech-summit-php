@@ -1,10 +1,10 @@
 <?php
 
 /**
- *  body
+ * Class Host: A non-mutable object designed to represent a RESTful host endpoint.
  *
  * @category   Core
- * @package    Class Host: A non-mutable object designed to represent a RESTful host endpoint.
+ * @package    presto/host.php
  * @author     M.Jastad <michael.jastad@nutanix.com>
  * @copyright  2017 Nutanix, Inc.
  * @license    N/A
