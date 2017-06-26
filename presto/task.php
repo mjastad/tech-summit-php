@@ -1,5 +1,21 @@
 <?php
 
+/**
+ * Class Task: A non-mutable container object designed around NTNX REST endpiont Task resource.  Reference or handle to
+ * background process
+ *
+ * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header MUST NOT be removed.
+ *
+ * @category   Core
+ * @package    presto/task.php
+ * @author     M.Jastad <michael.jastad@nutanix.com>
+ * @copyright  2017 Nutanix, Inc.
+ * @license    USE-AS-IS
+ * @version    Release: @1.0.1
+ * @since      Class available since Release 1.0.0
+ * @deprecated N/A
+ */
+
 class Task {
 
    const RUNNING = "Running";
