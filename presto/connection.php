@@ -3,7 +3,6 @@
 /**
  * Class Connection: Establishes a RESTful connection between client and REST endpoint
  *
- *
  * @category   Core
  * @package    presto/connection.php
  * @author     M.Jastad <michael.jastad@nutanix.com>
