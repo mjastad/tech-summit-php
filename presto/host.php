@@ -3,6 +3,9 @@
 /**
  * Class Host: A non-mutable object designed to represent a RESTful host endpoint.
  *
+ * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header must
+ * remain intact
+ *
  * @category   Core
  * @package    presto/host.php
  * @author     M.Jastad <michael.jastad@nutanix.com>
