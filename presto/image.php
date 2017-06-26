@@ -1,7 +1,10 @@
 <?php
 
 /**
- *  Class Image: A non-mutable container pattern object designed around NTNX REST endpiint Image resource.
+ * Class Image: A non-mutable container pattern object designed around NTNX REST endpiint Image resource.
+ *
+ * LICENSE: This source file is use-as-is and is subject to copyright(c).  Header must
+ * remain intact.
  *
  * @category   Core
  * @package    Class Image.php
