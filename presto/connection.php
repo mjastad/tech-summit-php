@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * Establishes a RESTful connection between client and REST endpoint
+ *
+ *
+ * @category   Core
+ * @package    connection.php
+ * @author     M.Jastad <michael.jastad@nutanix.com>
+ * @copyright  2017 Nutanix, Inc.
+ * @license    N/A
+ * @version    Release: @1.0.1
+ * @since      Class available since Release 1.0.0
+ */
+
 require_once('user.php');
 require_once('host.php');
 
