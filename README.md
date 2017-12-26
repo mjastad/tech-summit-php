@@ -30,6 +30,8 @@ PRESTO v1 is designed for Tech Summit 2017 as a guide for particiapnts to stand-
 
 (4) REQUIRED SOFTWARE
 -----------------------
+NTNX REST API v2
+
 PHP Version => 5.6.30
 
 PHP 5.6.30 (cli) (built: Feb  7 2017 16:06:52) 
